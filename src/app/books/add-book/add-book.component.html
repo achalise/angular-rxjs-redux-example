@@ -1,0 +1,43 @@
+<div class="m-2">
+    <div class="section-header p-2">
+        Add Book
+    </div>
+    <div class="m-2">
+        <form [formGroup]="addBookForm">
+            <div class="form-group">
+                <label for="bookTitle">Title</label>
+                <input type="text" [formControl]="title" [class.is-invalid]="title.touched && title.invalid"
+                       class="form-control" id="bookTitle" placeholder="Book title">
+                <div class="invalid-feedback" *ngIf="title.errors && title.errors.required">
+                    Please enter title.
+                </div>
+                <div class="invalid-feedback" *ngIf="title.errors && title.errors.maxlength">
+                    Title can only be up to 30 characters in length.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="categorySelect">Category</label>
+                <select class="form-control" id="categorySelect" [formControl]="category"
+                        [class.is-invalid]="category.touched && category.invalid">
+                    <option value="" *ngIf="category.pristine">Please select</option>
+                    <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a category.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="bookDescription">Description</label>
+                <textarea class="form-control" [class.is-invalid]="description.touched && description.invalid"
+                          id="bookDescription" [formControl]="description" rows="3"></textarea>
+                <div class="invalid-feedback">
+                    Please enter book description.
+                </div>
+            </div>
+            <div class="clearfix">
+                <button type="submit" (click)="submit()" class="btn btn-outline-secondary float-right">Add</button>
+            </div>
+
+        </form>
+    </div>
+</div>

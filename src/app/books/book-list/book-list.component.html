@@ -1,0 +1,8 @@
+<div class="m-2">
+    <div class="section-header p-2">
+        Book List ({{books.length}})
+    </div>
+    <div *ngFor="let book of books">
+        <app-book-detail [book]="book"></app-book-detail>
+    </div>
+</div>

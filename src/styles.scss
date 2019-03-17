@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.section-header {
+  border: #000000 1px solid;
+  height: 50px;
+  font-size: 1.5em;
+}
