@@ -28,7 +28,7 @@ describe('AddBookComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should validate the fields correctly ', () => {
+    it('should validate the fields correctly and not allow the form to be submitted if errors exist', () => {
         const title: AbstractControl = component.title;
         title.setValue('');
         expect(title.invalid).toBe(true);
